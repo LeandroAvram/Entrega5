@@ -1,0 +1,31 @@
+<body>
+<h2 style="color:crimson;">Historial</h2>
+{{#if dataexits}}
+<div class="table-responsive">
+    <table class="table table-dark">
+        <tr style="color: yellow;">
+            <th>Title</th>
+            <th>Price</th>
+            <th>URL</th>
+        </tr>
+        {{#each array}}
+        <tr>
+            <td>
+                {{this.title}}
+            </td>
+            <td>
+                {{this.price}}
+            </td>
+            <td>
+                <img src={{this.thumbnail}} width="85" height="100">
+                
+            </td>
+        </tr>
+        {{/each}}
+    </table>
+</div>
+{{else}}
+<h3 class="alert alert-danger">no se encontraron datos</h1>
+{{/if}}
+<a class="btn btn-info mt-3 mb-5" href="/">Form</a>
+</body>

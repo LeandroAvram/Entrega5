@@ -1,0 +1,28 @@
+
+<body>
+
+  <h1 style="color:blue;">Ingrese datos</h1>
+<br>
+
+<form action="/api/productos" method="post">
+
+    <div class="form-group">
+        <label for="Title"><b>Title:</b></label>
+        <input id="Title" class="form-control" type="text" name="title">
+    </div>
+
+    <div class="form-group">
+        <label for="Price"><b>Price:</b></label>
+        <input id="Price" class="form-control" type="number" name="price">
+    </div>
+
+    <div class="form-group">
+        <label for="thumbnail"><b>URL:</b></label>
+        <input id="thumbnail" class="form-control" type="text" name="thumbnail">
+    </div>
+
+    <button class="btn btn-success mt-3 mb-5">Enviar</button>
+     <a class="btn btn-info mt-3 mb-5" href="/product">Table</a>
+</form> 
+</body>
+
