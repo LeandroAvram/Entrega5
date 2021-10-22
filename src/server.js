@@ -6,6 +6,7 @@ const { Server: HttpServer } = require('http')
 const { Server: IOServer } = require('socket.io')
 
 const fa = new FileArray('./productos.txt')
+const famensaje = new FileArray('./mensajes.txt')
 
 const app = express()
 app.use(express.json())
@@ -19,12 +20,18 @@ io.on('connection', async socket => {
   console.log('Nuevo cliente conectado')
 
   socket.emit('actualizarProductos', await fa.getAll())
+  socket.emit('actualizarMensajes', await famensaje.getAll())
+
 
   socket.on('nuevoProducto', async producto => {
       await fa.save(producto)
       io.sockets.emit('actualizarProductos', await fa.getAll())
   })
 
+  socket.on('nuevoMensaje', async mensaje => {
+    await famensaje.save(mensaje)
+    io.sockets.emit('actualizarMensajes', await famensaje.getAll())
+})
 })
 
 app.engine('hbs', exphbs({
